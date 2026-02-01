@@ -10,6 +10,7 @@ export interface ContactPageProps {
 function ContactPageComponent({ data }: ContactPageProps) {
   return (
     <section aria-labelledby="contact-heading">
+      <AsciiHeader lines={ASCII_CONTACT} />
       <h2 id="contact-heading" className="sr-only">
         Contact
       </h2>

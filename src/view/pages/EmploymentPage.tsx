@@ -12,6 +12,7 @@ export interface EmploymentPageProps {
 function EmploymentPageComponent({ data, treeText }: EmploymentPageProps) {
   return (
     <section className={styles.section} aria-labelledby="employment-heading">
+      <AsciiHeader lines={ASCII_EMPLOYMENT} />
       <h2 id="employment-heading" className="sr-only">
         Experience
       </h2>

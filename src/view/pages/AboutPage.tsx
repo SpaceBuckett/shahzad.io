@@ -10,6 +10,7 @@ export interface AboutPageProps {
 function AboutPageComponent({ data }: AboutPageProps) {
   return (
     <section aria-labelledby="about-heading">
+      <AsciiHeader lines={ASCII_ABOUT} />
       <h2 id="about-heading" className="sr-only">
         About
       </h2>

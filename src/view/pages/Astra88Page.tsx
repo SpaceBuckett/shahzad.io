@@ -10,6 +10,7 @@ export interface Astra88PageProps {
 function Astra88PageComponent({ data }: Astra88PageProps) {
   return (
     <section aria-labelledby="astra88-heading">
+      <AsciiHeader lines={ASCII_ASTRA88} />
       <h2 id="astra88-heading" className="sr-only">
         Astra88
       </h2>

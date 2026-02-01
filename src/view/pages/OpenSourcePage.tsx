@@ -10,6 +10,7 @@ export interface OpenSourcePageProps {
 function OpenSourcePageComponent({ data }: OpenSourcePageProps) {
   return (
     <section aria-labelledby="opensource-heading">
+      <AsciiHeader lines={ASCII_OPENSOURCE} />
       <h2 id="opensource-heading" className="sr-only">
         Open Source
       </h2>

@@ -10,6 +10,7 @@ export interface SkillsPageProps {
 function SkillsPageComponent({ data }: SkillsPageProps) {
   return (
     <section aria-labelledby="skills-heading">
+      <AsciiHeader lines={ASCII_SKILLS} />
       <h2 id="skills-heading" className="sr-only">
         Skills
       </h2>
