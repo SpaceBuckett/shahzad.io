@@ -27,13 +27,10 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Add CNAME for GitHub Pages
-        run: echo 'spacebuckett.github.io' > dist/CNAME
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
-          cname: spacebuckett.github.io
+          enable_jekyll: false
