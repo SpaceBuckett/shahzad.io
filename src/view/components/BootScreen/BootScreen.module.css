@@ -1,0 +1,64 @@
+.shell {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.2em;
+  background: var(--color-primary);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.skip {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--color-text-dim);
+  font-size: 0.75rem;
+}
+
+.skipButton {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.skipButton:hover {
+  color: var(--color-text);
+}
+
+.skipButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

@@ -1,0 +1,16 @@
+.header {
+  font-family: var(--font-mono);
+  font-size: clamp(0.5rem, 4vw, 1rem);
+  line-height: 1.2;
+  color: var(--color-primary);
+  white-space: pre;
+  overflow-x: auto;
+  margin: 0 0 1rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 0.5rem;
+  }
+}

@@ -1,0 +1,119 @@
+.shell {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 880px;
+  height: 70vh;
+  max-height: 640px;
+  min-height: 320px;
+  background: rgba(13, 13, 13, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(42, 42, 42, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  overflow: hidden;
+  z-index: 10;
+  backface-visibility: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(20, 20, 20, 0.9);
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-dim);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotRed { background: #ff5f56; }
+.dotYellow { background: #ffbd2e; }
+.dotGreen { background: #27c93f; }
+
+.title {
+  margin-left: 8px;
+  flex: 1;
+  text-align: center;
+}
+
+.output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.promptLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--color-border);
+  background: rgba(13, 13, 13, 0.85);
+}
+
+.prompt {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.inputWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: var(--color-caret);
+}
+
+.input::placeholder {
+  color: var(--color-text-dim);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.2em;
+  background: var(--color-caret);
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
