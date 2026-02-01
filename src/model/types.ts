@@ -22,12 +22,23 @@ export interface ProjectData {
   stars?: number
 }
 
+/** YYYY-MM or 'present' for endDate when ongoing. */
 export interface EmploymentEntry {
   id: string
   role: string
   company: string
   period: string
   description: string
+  /** e.g. Full-time, Freelance, Internship */
+  employmentType?: string
+  /** e.g. Peshawar, Pakistan · Remote */
+  location?: string
+  /** Optional bullet highlights for UI */
+  highlights?: string[]
+  /** For timeline positioning and overlap: YYYY-MM */
+  startDate?: string
+  /** For timeline positioning: YYYY-MM or 'present' */
+  endDate?: string
 }
 
 export interface ContactData {

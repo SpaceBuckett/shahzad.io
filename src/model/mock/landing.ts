@@ -5,7 +5,10 @@
 
 export function getLandingContent(): string {
   return [
-    'SHAHZAD(1)                 User Commands                 SHAHZAD(1)',
+    // make this elegant and professional with borders
+    '┌────────────────────────────────────────────────────────────────────────────┐',
+    '│                         WELCOME TO SHAHZAD.IO                              │',
+    '└────────────────────────────────────────────────────────────────────────────┘',
     '',
     'Senior Software Engineer · Systems Builder',
     '',

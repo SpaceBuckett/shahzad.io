@@ -10,7 +10,6 @@ export interface ContactPageProps {
 function ContactPageComponent({ data }: ContactPageProps) {
   return (
     <section aria-labelledby="contact-heading">
-      <AsciiHeader lines={ASCII_CONTACT} />
       <h2 id="contact-heading" className="sr-only">
         Contact
       </h2>
@@ -29,7 +28,7 @@ function ContactPageComponent({ data }: ContactPageProps) {
       )}
       {data.twitter && (
         <p style={{ margin: '0.25rem 0 0' }}>
-          <a href={data.twitter}>Twitter</a>
+          <a href={data.twitter}>X</a>
         </p>
       )}
     </section>

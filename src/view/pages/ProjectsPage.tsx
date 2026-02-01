@@ -10,7 +10,6 @@ export interface ProjectsPageProps {
 function ProjectsPageComponent({ data }: ProjectsPageProps) {
   return (
     <section aria-labelledby="projects-heading">
-      <AsciiHeader lines={ASCII_PROJECTS} />
       <h2 id="projects-heading" className="sr-only">
         Projects
       </h2>

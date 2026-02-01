@@ -159,14 +159,15 @@ function App() {
         onSubmit={vm.handleSubmit}
         onKeyDown={vm.handleKeyDown}
         scrollToBottomTrigger={vm.lines.length}
+        scrollOutput={vm.section !== 'about'}
       >
-      <>
-        {vm.lines.map((line, i) => (
-          <div key={`${String(i)}-${line.text.slice(0, 20)}`}>{renderOutputLine(line)}</div>
-        ))}
-        <SectionContent section={vm.section} />
-      </>
-    </Terminal>
+        <>
+          {vm.lines.map((line, i) => (
+            <div key={`${String(i)}-${line.text.slice(0, 20)}`}>{renderOutputLine(line)}</div>
+          ))}
+          <SectionContent section={vm.section} />
+        </>
+      </Terminal>
     </>
   )
 }

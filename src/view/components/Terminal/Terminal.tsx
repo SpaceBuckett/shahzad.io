@@ -22,6 +22,8 @@ export interface TerminalProps {
   inputLabel?: string
   /** When this value changes, the output area scrolls to the bottom (e.g. lines.length) */
   scrollToBottomTrigger?: number
+  /** When false, output does not scroll (content flows, e.g. for About); terminal can grow. */
+  scrollOutput?: boolean
 }
 
 function TerminalComponent({
@@ -35,6 +37,7 @@ function TerminalComponent({
   onKeyDown,
   inputLabel = 'Command input',
   scrollToBottomTrigger,
+  scrollOutput = true,
 }: TerminalProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const outputRef = useRef<HTMLDivElement>(null)
@@ -65,14 +68,23 @@ function TerminalComponent({
   }
 
   return (
-    <div className={styles.shell} role="application" aria-label="Terminal">
+    <div
+      className={`${styles.shell} ${scrollOutput ? '' : styles.shellNoOutputScroll}`.trim()}
+      role="application"
+      aria-label="Terminal"
+    >
       <header className={styles.header} aria-hidden>
         <span className={`${styles.dot} ${styles.dotRed}`} />
         <span className={`${styles.dot} ${styles.dotYellow}`} />
         <span className={`${styles.dot} ${styles.dotGreen}`} />
         <span className={styles.title}>terminal</span>
       </header>
-      <div ref={outputRef} className={styles.output} role="log" aria-live="polite">
+      <div
+        ref={outputRef}
+        className={`${styles.output} ${scrollOutput ? '' : styles.outputNoScroll}`.trim()}
+        role="log"
+        aria-live="polite"
+      >
         {children}
       </div>
       {showInput && (

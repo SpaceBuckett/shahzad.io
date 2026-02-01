@@ -7,10 +7,10 @@ import type { ContactData } from '../types.js'
 
 export function getContact(): ContactData {
   return {
-    email: 'contact@example.com',
+    email: 'iamshahzadahmad.dev@gmail.com',
     location: 'Remote',
-    github: undefined,
-    linkedin: undefined,
-    twitter: undefined,
+    github: 'https://github.com/SpaceBuckett',
+    linkedin: 'https://www.linkedin.com/in/heyiamshahzad/',
+    twitter: 'https://x.com/ShahzadYam',
   }
 }

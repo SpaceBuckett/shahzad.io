@@ -1,11 +1,7 @@
-import { lazy, memo, Suspense } from 'react'
+import { memo } from 'react'
 import { AsciiHeader } from '../components/AsciiHeader/index.js'
 import { ASCII_ABOUT } from '../components/asciiArt.js'
 import type { AboutData } from '../../model/types.js'
-
-const AsciiPortrait = lazy(() =>
-  import('../components/AsciiPortrait/index.js').then((m) => ({ default: m.AsciiPortrait })),
-)
 
 export interface AboutPageProps {
   data: AboutData
@@ -14,15 +10,18 @@ export interface AboutPageProps {
 function AboutPageComponent({ data }: AboutPageProps) {
   return (
     <section aria-labelledby="about-heading">
-      <AsciiHeader lines={ASCII_ABOUT} />
       <h2 id="about-heading" className="sr-only">
         About
       </h2>
-      <Suspense fallback={null}>
-        <AsciiPortrait />
-      </Suspense>
-      <p style={{ margin: 0 }}>{data.name} — {data.tagline}</p>
-      <p style={{ marginTop: '0.5rem' }}>{data.bio}</p>
+      <p style={{ margin: 0, fontWeight: 600, color: 'var(--color-terminal-header)' }}>
+        {data.name}
+      </p>
+      <p style={{ margin: '0.35rem 0 0', color: 'var(--color-text-dim)', fontSize: '0.875rem' }}>
+        {data.tagline}
+      </p>
+      <p style={{ margin: '0.75rem 0 0', whiteSpace: 'pre-wrap', lineHeight: 1.5 }}>
+        {data.bio}
+      </p>
     </section>
   )
 }

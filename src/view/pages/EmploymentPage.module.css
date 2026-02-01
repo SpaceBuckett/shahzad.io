@@ -1,0 +1,153 @@
+/* Experience / Employment – pro terminal UX. */
+
+.section {
+  margin: 0;
+}
+
+.treeBlock {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tree {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-terminal-section);
+  white-space: pre;
+  overflow-x: auto;
+  letter-spacing: 0.02em;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.375rem;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary) 0%,
+    var(--color-border) 100%
+  );
+  border-radius: 1px;
+}
+
+.card {
+  position: relative;
+  padding: 0.75rem 0 0.75rem 1.25rem;
+  margin: 0;
+  border-left: 2px solid transparent;
+  margin-left: 0.5rem;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 1rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-bg);
+}
+
+.card:first-child {
+  padding-top: 0.25rem;
+}
+
+.company {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-terminal-header);
+  margin: 0 0 0.15rem;
+  letter-spacing: 0.03em;
+}
+
+.role {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text);
+  margin: 0 0 0.35rem;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-dim);
+  margin: 0 0 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.meta span + span::before {
+  content: ' · ';
+  margin-right: 0.25rem;
+  color: var(--color-border);
+}
+
+.description {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  color: var(--color-text-dim);
+  margin: 0.35rem 0 0;
+  max-width: 72ch;
+}
+
+.highlights {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+}
+
+.highlights li {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  color: var(--color-text-dim);
+  padding-left: 1rem;
+  position: relative;
+  margin-bottom: 0.2rem;
+}
+
+.highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-terminal-section);
+  font-size: 0.6rem;
+}
+
+@media (max-width: 480px) {
+  .tree {
+    font-size: 0.625rem;
+  }
+
+  .card {
+    padding-left: 1rem;
+  }
+
+  .company {
+    font-size: 0.75rem;
+  }
+
+  .role,
+  .description,
+  .highlights li {
+    font-size: 0.625rem;
+  }
+}

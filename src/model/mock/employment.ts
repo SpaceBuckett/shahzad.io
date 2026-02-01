@@ -1,34 +1,47 @@
 /**
  * Mock data provider: Employment. Replace with API call later.
- * Chronological: most recent first. Bullets and impact in description.
+ * Chronological: most recent first. Matches CV/LinkedIn-style details.
  */
 
 import type { EmploymentEntry } from '../types.js'
 
-/** ASCII tree showing overlapping timelines. Employment vs venture clear. */
+/** ASCII tree: overlapping timelines, pro terminal vibe. */
 export function getEmploymentTreeText(): string {
   return [
-    '2023 ─────────────────────────────────────────────────────────',
-    '├─ AntonX (Senior Software Engineer)',
-    '│  ├─ Backend (Golang, Microservices)',
-    '│  ├─ Fullstack (Go + React/Next.js)',
-    '│  └─ Mobile (Flutter)',
+    '2026 ─────────────────────────────────────────────────────────',
     '│',
-    '└─ Astra88 (Founder) [alongside AntonX]',
-    '   ├─ Boutique engineering studio',
-    '   └─ Research lab',
+    '├─ Astra88 · Founding Engineer',
+    '│  Jan 2026 – Present · Remote',
+    '│  React.js, Node.js, boutique engineering & research',
+    '│',
+    '├─ AntonX · SDE-III',
+    '│  Jul 2024 – Present · Hybrid',
+    '│  Leading technical team, Halal Now scale, code reviews',
+    '│',
+    '└─ TripMate · Software Engineer III',
+    '   Aug 2025 – Present · On-site',
     '',
-    '2021 ─────────────────────────────────────────────────────────',
-    '├─ AntonX (Senior Software Engineer)',
-    '├─ Astra88 (Founder)',
-    '└─ NOW by HMC (Backend & Mobile Systems)',
+    '2024 ─────────────────────────────────────────────────────────',
+    '├─ AntonX · SDE-II → SDE-III',
+    '│  Aug 2022 – Jul 2024 · 2 yrs',
+    '│  OOP, software methodologies, backend & fullstack',
+    '│',
+    '└─ Upwork · Freelance (through Jun 2023)',
+    '',
+    '2022 ─────────────────────────────────────────────────────────',
+    '├─ AntonX · SDE-I → SDE-II',
+    '│  Apr 2022 – Jul 2022 · 4 mos → continued as SDE-II',
+    '│',
+    '└─ Upwork · Software Engineer',
+    '   Jan 2019 – Jun 2023 · 4 yrs 6 mos',
+    '   Flutter, ML models, REST APIs, CI/CD',
+    '',
+    '2020 ─────────────────────────────────────────────────────────',
+    '└─ NCAI UET Peshawar · Data Scientist | ML Engineer',
+    '   Jun 2020 – Sep 2020 · 4 mos · Internship',
     '',
     '2019 ─────────────────────────────────────────────────────────',
-    '├─ UToR Digital (Senior Flutter Engineer)',
-    '└─ Astra88 (Founder)',
-    '',
-    '2018 ─────────────────────────────────────────────────────────',
-    '└─ Upwork (Freelance Engineer)',
+    '└─ Upwork · Software Engineer (Freelance)',
   ].join('\n')
 }
 
@@ -36,38 +49,104 @@ export function getEmployment(): EmploymentEntry[] {
   return [
     {
       id: 'e1',
-      role: 'Senior Software Engineer (Backend / Fullstack / Mobile)',
-      company: 'AntonX',
-      period: '2023 – Present',
-      description:
-        'Go services, REST/event-driven APIs, microservices. React/Next.js and Flutter apps. ' +
-        'Reduced p99 latency 40%. Led design reviews and mentorship.',
+      role: 'Founding Engineer',
+      company: 'Astra 88',
+      period: 'Jan 2026 – Present',
+      startDate: '2026-01',
+      endDate: 'present',
+      employmentType: 'Full-time',
+      location: 'Peshawar, Pakistan · Remote',
+      description: 'Boutique engineering studio and research lab. React.js, Node.js, systems design.',
+      highlights: [
+        'Boutique engineering studio and research lab',
+        'React.js, Node.js, systems design',
+      ],
     },
     {
       id: 'e2',
-      role: 'Backend & Mobile Systems',
-      company: 'NOW by HMC',
-      period: '2021 – 2023',
-      description:
-        'Golang backend, PostgreSQL, Redis, Kafka. Flutter mobile apps, deep linking, maps, real-time updates. ' +
-        'Improved uptime to 99.9%. Cross-platform delivery.',
+      role: 'Software Engineer – SDE-III',
+      company: 'AntonX',
+      period: 'Jul 2024 – Present',
+      startDate: '2024-07',
+      endDate: 'present',
+      employmentType: 'Full-time',
+      location: 'Peshawar · Hybrid',
+      description: 'Leading the technical team at AntonX, scaling Halal Now to thousands of customers.',
+      highlights: [
+        'Leading technical team, scaling Halal Now to thousands of customers',
+        'Cache mechanisms, peer code reviews, high-quality delivery',
+        'Performance optimization and user experience',
+        'Golang, Back-End Web Development',
+      ],
     },
     {
       id: 'e3',
-      role: 'Senior Flutter Engineer',
-      company: 'UToR Digital',
-      period: '2019 – 2021',
-      description:
-        'Flutter/Dart, Android/iOS platform channels, animations. Shipped apps to production; CI/CD (CodeMagic). ' +
-        'Scaled to 100k+ users.',
+      role: 'Software Engineer – SDE-II',
+      company: 'AntonX',
+      period: 'Aug 2022 – Jul 2024',
+      startDate: '2022-08',
+      endDate: '2024-07',
+      employmentType: 'Full-time',
+      location: 'Peshawar, Pakistan',
+      description: 'OOP, software development methodologies. Backend and fullstack delivery.',
+      highlights: [
+        'Object-Oriented Programming, software methodologies',
+        'Backend and fullstack systems',
+      ],
     },
     {
       id: 'e4',
-      role: 'Freelance Engineer',
+      role: 'Software Engineer – SDE-I',
+      company: 'AntonX',
+      period: 'Apr 2022 – Jul 2022',
+      startDate: '2022-04',
+      endDate: '2022-07',
+      employmentType: 'Full-time',
+      location: 'Pakistan · On-site',
+      description: 'OOP, software development methodologies. On-site delivery.',
+      highlights: ['Object-Oriented Programming', 'Software development methodologies'],
+    },
+    {
+      id: 'e5',
+      role: 'Software Engineer III',
+      company: 'TripMate',
+      period: 'Aug 2025 – Present',
+      startDate: '2025-08',
+      endDate: 'present',
+      employmentType: 'Full-time',
+      location: 'Pakistan · On-site',
+      description: 'Travel and logistics platform. Full-stack and systems.',
+      highlights: ['Travel / logistics platform', 'Full-stack delivery'],
+    },
+    {
+      id: 'e6',
+      role: 'Software Engineer',
       company: 'Upwork',
-      period: '2018 – 2019',
-      description:
-        'Full-stack and mobile contracts. Golang backends, React frontends, Flutter prototypes. Client delivery and scope.',
+      period: 'Jan 2019 – Jun 2023',
+      startDate: '2019-01',
+      endDate: '2023-06',
+      employmentType: 'Freelance',
+      location: 'Remote',
+      description: 'ML models, Flutter apps, REST APIs, CI/CD. Global clients.',
+      highlights: [
+        'Data-based ML models for global clients; statistical analysis and predictive algorithms',
+        'Cross-platform Flutter apps from concept to delivery, ML integration',
+        'App performance: refactoring, state management, load times reduced ~40%',
+        'RESTful APIs, secure data handling, robust error management',
+        'CI/CD pipelines for automated testing and deployment',
+      ],
+    },
+    {
+      id: 'e7',
+      role: 'Data Scientist | Machine Learning Engineer',
+      company: 'National Center of Artificial Intelligence (NCAI) UET Peshawar',
+      period: 'Jun 2020 – Sep 2020',
+      startDate: '2020-06',
+      endDate: '2020-09',
+      employmentType: 'Internship',
+      location: 'Peshawar, Pakistan',
+      description: 'Research and ML engineering. NCAI UET Peshawar.',
+      highlights: ['Research and ML engineering', 'NCAI UET Peshawar'],
     },
   ]
 }

@@ -39,9 +39,17 @@
   border-radius: 50%;
 }
 
-.dotRed { background: #ff5f56; }
-.dotYellow { background: #ffbd2e; }
-.dotGreen { background: #27c93f; }
+.dotRed {
+  background: #ff5f56;
+}
+
+.dotYellow {
+  background: #ffbd2e;
+}
+
+.dotGreen {
+  background: #27c93f;
+}
 
 .title {
   margin-left: 8px;
@@ -57,6 +65,23 @@
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--color-text);
+}
+
+/* When output should not scroll (e.g. About): terminal grows, page scrolls */
+.shellNoOutputScroll {
+  height: auto;
+  max-height: none;
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: 2rem auto;
+}
+
+.outputNoScroll {
+  overflow-y: visible;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .promptLine {
@@ -115,5 +140,7 @@
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
