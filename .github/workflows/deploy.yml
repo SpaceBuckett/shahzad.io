@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed so GITHUB_TOKEN can push to gh-pages
 
     steps:
       - name: Checkout code
