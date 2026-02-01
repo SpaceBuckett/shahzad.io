@@ -1,0 +1,2 @@
+import{r as t,j as _}from"./index-BkkUMWAJ.js";const r="_portrait_qsjuc_1",o={portrait:r},i=["     .--------.     ","    /   ____   \\    ","   |  ( o  o )  |   ","   |   \\ __ /   |   ","    \\__________/    ","   /  |  \\/  |  \\   ","  |   |      |   |  ","  |   | code |   |  ","  |   |______|   |  ","   \\_/        \\_/   "];function s(){return _.jsx("pre",{className:o.portrait,"aria-hidden":!0,children:i.join(`
+`)})}const a=t.memo(s);export{a as AsciiPortrait};
