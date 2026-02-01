@@ -10,9 +10,10 @@
   --color-text: #e8e8e8;
   --color-text-dim: #a0a0a0;
   --color-caret: #48765e;
-  /* Terminal semantics: meaning, not decoration */
+  /* Terminal semantics: meaning, not decoration (no gradients, no decorative animation) */
   --color-terminal-header: #48765e;
   --color-terminal-section: #5a8a6e;
+  --color-terminal-label: #5ee7df;
   --color-terminal-system: #b8a84a;
   --color-terminal-error: #e74c3c;
   --color-terminal-hint: var(--color-text-dim);
@@ -34,8 +35,9 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: clamp(14px, 2vw + 12px, 16px);
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -46,13 +48,17 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 280px;
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.5;
   overflow-x: hidden;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Animated gradient background — Awwwards/WebGradients-inspired. Noise overlay for frosted-glass effect. */
@@ -117,11 +123,18 @@ h3 {
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
+}
+
+section {
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 a {
   color: var(--color-primary);
   text-decoration: none;
+  word-break: break-word;
 }
 
 a:hover {

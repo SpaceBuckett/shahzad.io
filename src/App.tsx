@@ -58,7 +58,9 @@ function renderOutputLine(line: OutputLine): React.ReactNode {
         ? 'var(--color-terminal-hint)'
         : semantic === 'header'
           ? 'var(--color-terminal-header)'
-          : undefined
+          : semantic === 'label'
+            ? 'var(--color-terminal-label)'
+            : undefined
   return (
     <div
       style={{

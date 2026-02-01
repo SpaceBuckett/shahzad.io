@@ -16,6 +16,7 @@ import {
   getEmploymentTreeText,
   getExperienceVerbose,
   getLandingContent,
+  getLandingVariant,
   getManShahzad,
   getPrinciplesDoc,
   getProcShahzad,
@@ -40,7 +41,7 @@ import {
 
 const MAX_HISTORY = 50
 
-export type OutputLineSemantic = 'system' | 'hint' | 'header'
+export type OutputLineSemantic = 'system' | 'hint' | 'header' | 'label'
 
 export type OutputLine =
   | { type: 'command'; text: string }
@@ -72,7 +73,7 @@ export interface TerminalVMHandlers {
 export function useTerminalVM(): TerminalVMState & TerminalVMHandlers {
   const [section, setSection] = useState<SectionId>('help')
   const [lines, setLines] = useState<OutputLine[]>(() => [
-    { type: 'output', text: getLandingContent() },
+    { type: 'output', text: getLandingContent(getLandingVariant()) },
   ])
   const [inputValue, setInputValue] = useState('')
   const [pendingCvDownload, setPendingCvDownload] = useState<string | null>(null)
@@ -81,6 +82,18 @@ export function useTerminalVM(): TerminalVMState & TerminalVMHandlers {
   const autocompleteIndexRef = useRef(-1)
   const astra88ContextRef = useRef(false)
   const hasShown90Ref = useRef(false)
+
+  useEffect(() => {
+    const refreshLandingIfOnly = () => {
+      setLines((prev) => {
+        if (prev.length !== 1 || prev[0].type !== 'output') return prev
+        return [{ type: 'output', text: getLandingContent(getLandingVariant()) }]
+      })
+    }
+    refreshLandingIfOnly()
+    window.addEventListener('resize', refreshLandingIfOnly)
+    return () => window.removeEventListener('resize', refreshLandingIfOnly)
+  }, [])
 
   useEffect(() => {
     if (hasShown90Ref.current) return

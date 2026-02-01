@@ -5,11 +5,12 @@
   transform: translate(-50%, -50%) translateZ(0);
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 95%;
   max-width: 880px;
-  height: 70vh;
+  height: 85vh;
+  height: 85dvh;
   max-height: 640px;
-  min-height: 320px;
+  min-height: 280px;
   background: rgba(13, 13, 13, 0.55);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -19,18 +20,53 @@
   overflow: hidden;
   z-index: 10;
   backface-visibility: hidden;
+  margin-left: env(safe-area-inset-left);
+  margin-right: env(safe-area-inset-right);
+}
+
+@media (min-width: 480px) {
+  .shell {
+    width: 90%;
+    height: 80vh;
+    height: 80dvh;
+    min-height: 320px;
+  }
+}
+
+@media (min-width: 768px) {
+  .shell {
+    width: 85%;
+    height: 75vh;
+    height: 75dvh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    width: 80%;
+    height: 70vh;
+    height: 70dvh;
+  }
 }
 
 .header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 6px 10px;
   background: rgba(20, 20, 20, 0.9);
   border-bottom: 1px solid var(--color-border);
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: clamp(0.6875rem, 2vw + 0.5rem, 0.8125rem);
   color: var(--color-text-dim);
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) {
+  .header {
+    gap: 8px;
+    padding: 8px 12px;
+  }
 }
 
 .dot {
@@ -60,22 +96,52 @@
 .output {
   flex: 1;
   overflow-y: auto;
-  padding: 16px;
+  overflow-x: hidden;
+  padding: 12px;
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: clamp(0.8125rem, 1.5vw + 0.6rem, 0.875rem);
   line-height: 1.6;
   color: var(--color-text);
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 480px) {
+  .output {
+    padding: 16px;
+  }
 }
 
 /* When output should not scroll (e.g. About): terminal grows, page scrolls */
 .shellNoOutputScroll {
   height: auto;
-  max-height: none;
+  max-height: 90vh;
+  max-height: 90dvh;
   position: relative;
   top: auto;
   left: auto;
   transform: none;
-  margin: 2rem auto;
+  margin: 1rem auto;
+  width: 95%;
+}
+
+@media (min-width: 480px) {
+  .shellNoOutputScroll {
+    margin: 2rem auto;
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .shellNoOutputScroll {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shellNoOutputScroll {
+    width: 80%;
+  }
 }
 
 .outputNoScroll {
@@ -87,12 +153,24 @@
 .promptLine {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px 16px;
+  gap: 6px;
+  padding: 10px 12px 12px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: clamp(0.8125rem, 1.5vw + 0.6rem, 0.875rem);
   border-top: 1px solid var(--color-border);
   background: rgba(13, 13, 13, 0.85);
+  flex-shrink: 0;
+  min-height: 44px;
+}
+
+@media (min-width: 480px) {
+  .promptLine {
+    gap: 8px;
+    padding: 8px 16px 16px;
+    padding-bottom: 16px;
+    min-height: 0;
+  }
 }
 
 .prompt {

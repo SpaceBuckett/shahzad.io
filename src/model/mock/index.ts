@@ -3,7 +3,7 @@
  */
 
 export { getAbout } from './about.js'
-export { getLandingContent } from './landing.js'
+export { getLandingContent, getLandingVariant } from './landing.js'
 export { getSkills, getSkillsStats } from './skills.js'
 export { getProjects } from './projects.js'
 export { getOpenSource } from './opensource.js'

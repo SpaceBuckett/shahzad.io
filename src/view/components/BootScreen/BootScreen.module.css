@@ -1,12 +1,22 @@
 .shell {
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-mono);
-  font-size: 0.875rem;
-  padding: 1.5rem;
+  font-size: clamp(0.8125rem, 1.5vw + 0.6rem, 0.875rem);
+  padding: 1rem;
+  padding-left: calc(1rem + env(safe-area-inset-left));
+  padding-right: calc(1rem + env(safe-area-inset-right));
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 480px) {
+  .shell {
+    padding: 1.5rem;
+  }
 }
 
 .line {
